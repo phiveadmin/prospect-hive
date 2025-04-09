@@ -1,0 +1,58 @@
+import React from "react";
+import { Card, CardContent } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs";
+
+export default function ProspectHive() {
+  return (
+    <div className="min-h-screen bg-gray-50 p-6">
+      <header className="text-center py-6">
+        <h1 className="text-4xl font-bold text-indigo-600">Prospect Hive</h1>
+        <p className="text-lg text-gray-600 mt-2">
+          Connecting students with internships, smarter and faster.
+        </p>
+      </header>
+
+      <Tabs defaultValue="students" className="max-w-4xl mx-auto">
+        <TabsList className="grid w-full grid-cols-2">
+          <TabsTrigger value="students">Student</TabsTrigger>
+          <TabsTrigger value="companies">Company</TabsTrigger>
+        </TabsList>
+
+        {/* Student Portal */}
+        <TabsContent value="students">
+          <Card className="mt-6">
+            <CardContent className="space-y-4 p-6">
+              <h2 className="text-2xl font-semibold">Student Registration</h2>
+              <Input placeholder="Full Name" />
+              <Input placeholder="University" />
+              <Input placeholder="Email" type="email" />
+              <Input placeholder="Password" type="password" />
+              <Input placeholder="Upload Resume" type="file" />
+              <Button className="w-full">Register</Button>
+            </CardContent>
+          </Card>
+        </TabsContent>
+
+        {/* Company Portal */}
+        <TabsContent value="companies">
+          <Card className="mt-6">
+            <CardContent className="space-y-4 p-6">
+              <h2 className="text-2xl font-semibold">Company Registration</h2>
+              <Input placeholder="Company Name" />
+              <Input placeholder="Industry" />
+              <Input placeholder="Email" type="email" />
+              <Input placeholder="Password" type="password" />
+              <Button className="w-full">Register</Button>
+            </CardContent>
+          </Card>
+        </TabsContent>
+      </Tabs>
+
+      <footer className="text-center mt-12 text-gray-500">
+        &copy; {new Date().getFullYear()} Prospect Hive. All rights reserved.
+      </footer>
+    </div>
+  );
+}
